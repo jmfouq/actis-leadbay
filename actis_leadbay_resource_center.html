@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Centre de ressources Leadbay — Actis Isolation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --loom-purple: #625DF5;
+    --loom-purple-dark: #4B47D6;
+    --loom-purple-light: #EEF0FF;
+    --loom-purple-mid: #C7C5FB;
+    --loom-pink: #F564A9;
+    --loom-bg: #F7F8FA;
+    --loom-white: #FFFFFF;
+    --loom-border: #E5E7EB;
+    --loom-text: #111827;
+    --loom-muted: #6B7280;
+    --loom-subtle: #9CA3AF;
+    --radius: 10px;
+    --radius-lg: 14px;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--loom-bg);
+    color: var(--loom-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  .site-header {
+    background: var(--loom-white);
+    border-bottom: 1px solid var(--loom-border);
+    padding: 0 2rem;
+  }
+  .header-inner {
+    max-width: 920px; margin: 0 auto; padding: 1rem 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .header-brand { display: flex; align-items: center; gap: 12px; }
+  .loom-logo {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--loom-purple);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .loom-logo svg { display: block; }
+  .brand-text { display: flex; flex-direction: column; gap: 1px; }
+  .brand-name { font-size: 14px; font-weight: 600; color: var(--loom-text); letter-spacing: -0.01em; line-height: 1.2; }
+  .brand-sub { font-size: 12px; color: var(--loom-muted); line-height: 1.2; }
+  .header-contact {
+    font-size: 13px; font-weight: 500; color: var(--loom-purple);
+    background: var(--loom-purple-light);
+    border: none; border-radius: var(--radius);
+    padding: 7px 14px; text-decoration: none; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .header-contact:hover { background: var(--loom-purple-mid); }
+
+  /* Hero */
+  .hero {
+    background: var(--loom-white);
+    border-bottom: 1px solid var(--loom-border);
+    padding: 2.5rem 2rem;
+  }
+  .hero-inner { max-width: 920px; margin: 0 auto; display: flex; align-items: flex-start; gap: 2rem; justify-content: space-between; }
+  .hero-text {}
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--loom-purple); background: var(--loom-purple-light);
+    border-radius: 20px; padding: 4px 10px; margin-bottom: 0.75rem;
+  }
+  .hero h1 { font-size: 26px; font-weight: 700; color: var(--loom-text); letter-spacing: -0.025em; line-height: 1.25; margin-bottom: 0.5rem; }
+  .hero p { font-size: 15px; color: var(--loom-muted); max-width: 480px; }
+  .hero-stats { display: flex; gap: 1.5rem; flex-shrink: 0; align-self: center; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 22px; font-weight: 700; color: var(--loom-purple); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--loom-muted); margin-top: 2px; }
+
+  /* Main */
+  .main { max-width: 920px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+
+  /* Teaser */
+  .teaser-card {
+    background: linear-gradient(135deg, #625DF5 0%, #8B5CF6 100%);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1.25rem;
+    margin-bottom: 2.5rem; text-decoration: none;
+    transition: opacity 0.15s, transform 0.15s;
+    position: relative; overflow: hidden;
+  }
+  .teaser-card::before {
+    content: ''; position: absolute; top: -30px; right: -30px;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .teaser-card:hover { opacity: 0.95; transform: translateY(-1px); }
+  .teaser-play {
+    width: 48px; height: 48px; background: rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; position: relative; z-index: 1;
+  }
+  .teaser-content { flex: 1; position: relative; z-index: 1; }
+  .teaser-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 3px; }
+  .teaser-content p { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+  .teaser-content span { font-size: 13px; color: rgba(255,255,255,0.65); }
+  .teaser-arrow { color: rgba(255,255,255,0.8); flex-shrink: 0; position: relative; z-index: 1; }
+
+  /* Section */
+  .section { margin-bottom: 2.5rem; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+  .section-num {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--loom-purple); background: var(--loom-purple-light);
+    border-radius: 6px; padding: 3px 9px; flex-shrink: 0;
+  }
+  .section-title { font-size: 15px; font-weight: 600; color: var(--loom-text); letter-spacing: -0.01em; }
+  .section-line { flex: 1; height: 1px; background: var(--loom-border); }
+
+  /* Video grid */
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+
+  .video-card {
+    background: var(--loom-white); border: 1px solid var(--loom-border);
+    border-radius: var(--radius-lg); overflow: hidden; text-decoration: none;
+    display: flex; flex-direction: column;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  }
+  .video-card:hover {
+    border-color: var(--loom-purple-mid);
+    box-shadow: 0 4px 16px rgba(98,93,245,0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Thumbnails stylisées */
+  .video-thumb {
+    height: 110px; position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Thumb 1 — Interface (mockup écran) */
+  .thumb-interface { background: #EEF0FF; }
+  .thumb-interface .screen-mock {
+    width: 90px; height: 64px; background: #fff;
+    border: 1.5px solid #C7C5FB; border-radius: 5px;
+    position: relative; overflow: hidden;
+  }
+  .thumb-interface .screen-bar { height: 10px; background: #625DF5; width: 100%; }
+  .thumb-interface .screen-row {
+    display: flex; gap: 3px; padding: 4px 4px 2px;
+  }
+  .thumb-interface .screen-cell {
+    height: 5px; border-radius: 2px; background: #C7C5FB;
+  }
+
+  /* Thumb 2 — Découverte (carte + pins) */
+  .thumb-map { background: #E8F4F0; }
+  .thumb-map svg { width: 80px; height: 72px; }
+
+  /* Thumb 3 — Pipeline (graphique) */
+  .thumb-pipeline { background: #FDF4FF; }
+  .thumb-pipeline svg { width: 80px; height: 60px; }
+
+  /* Thumb 4 — Mobile */
+  .thumb-mobile { background: #F0F4FF; }
+  .thumb-mobile .phone-mock {
+    width: 38px; height: 66px; background: #fff;
+    border: 2px solid #625DF5; border-radius: 8px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .thumb-mobile .phone-notch {
+    width: 14px; height: 4px; background: #625DF5;
+    border-radius: 0 0 3px 3px; align-self: center; margin-top: 2px; flex-shrink: 0;
+  }
+  .thumb-mobile .phone-screen { flex: 1; background: #EEF0FF; margin: 3px 2px 2px; border-radius: 3px; }
+
+  /* Thumb 5 — Géo région */
+  .thumb-geo { background: #EFF9F4; }
+  .thumb-geo svg { width: 80px; height: 70px; }
+
+  /* Thumb 6 — Ville */
+  .thumb-city { background: #FFF8EE; }
+  .thumb-city svg { width: 80px; height: 70px; }
+
+  /* Thumb 7 — Filtres */
+  .thumb-filters { background: #F5F0FF; }
+  .thumb-filters .filter-lines { display: flex; flex-direction: column; gap: 7px; padding: 12px; width: 100px; }
+  .thumb-filters .f-row { display: flex; align-items: center; gap: 6px; }
+  .thumb-filters .f-label { height: 6px; border-radius: 3px; background: #C7C5FB; }
+  .thumb-filters .f-dot { width: 10px; height: 10px; border-radius: 50%; background: #625DF5; flex-shrink: 0; }
+
+  /* Thumb 8 — Qualification (étoiles) */
+  .thumb-qualify { background: #FFFBEE; }
+  .thumb-qualify svg { width: 80px; height: 66px; }
+
+  /* Thumb 9 — Enrichissement (profil) */
+  .thumb-enrich { background: #F0FFF8; }
+  .thumb-enrich svg { width: 80px; height: 70px; }
+
+  /* Thumb 10 — Salesforce (sync) */
+  .thumb-sf { background: #EAF4FF; }
+  .thumb-sf svg { width: 80px; height: 70px; }
+
+  /* Thumb 11 — Territoire (carte heat) */
+  .thumb-territory { background: #FFF0F5; }
+  .thumb-territory svg { width: 80px; height: 70px; }
+
+  .play-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(98,93,245,0.0);
+    transition: background 0.15s;
+  }
+  .video-card:hover .play-overlay { background: rgba(98,93,245,0.08); }
+  .play-btn {
+    width: 36px; height: 36px;
+    background: var(--loom-purple);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(98,93,245,0.4);
+    transition: transform 0.15s;
+  }
+  .video-card:hover .play-btn { transform: scale(1.1); }
+  .play-btn svg { margin-left: 2px; }
+
+  .video-tag {
+    position: absolute; bottom: 7px; right: 8px;
+    font-size: 10px; font-weight: 600;
+    color: var(--loom-purple);
+    background: rgba(98,93,245,0.12);
+    border-radius: 4px; padding: 2px 7px;
+  }
+  .video-duration {
+    position: absolute; bottom: 7px; left: 8px;
+    font-size: 10px; font-weight: 500;
+    color: #fff; background: rgba(0,0,0,0.45);
+    border-radius: 4px; padding: 2px 6px;
+  }
+
+  .video-body { padding: 12px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 5px; }
+  .video-title { font-size: 13px; font-weight: 500; color: var(--loom-text); line-height: 1.4; }
+  .video-meta { font-size: 11px; color: var(--loom-subtle); display: flex; align-items: center; gap: 5px; margin-top: auto; padding-top: 4px; }
+  .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--loom-border); }
+
+  /* FAQ */
+  .faq-section {
+    background: var(--loom-white); border: 1px dashed var(--loom-border);
+    border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center;
+  }
+  .faq-icon {
+    width: 44px; height: 44px; background: var(--loom-purple-light);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .faq-section h2 { font-size: 15px; font-weight: 600; color: var(--loom-text); margin-bottom: 0.4rem; }
+  .faq-section p { font-size: 13px; color: var(--loom-muted); }
+
+  /* Footer */
+  .site-footer { border-top: 1px solid var(--loom-border); padding: 1.5rem 2rem; text-align: center; }
+  .site-footer p { font-size: 12px; color: var(--loom-subtle); }
+  .site-footer a { color: var(--loom-purple); text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .hero-stats { display: none; }
+    .hero h1 { font-size: 20px; }
+    .main { padding: 1.25rem 1rem 3rem; }
+    .header-contact { display: none; }
+    .teaser-card { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <div class="loom-logo">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5" stroke="white" stroke-width="1.5"/><circle cx="8" cy="8" r="2" fill="white"/><line x1="8" y1="1" x2="8" y2="4" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="12" x2="8" y2="15" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="8" x2="4" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="8" x2="15" y2="8" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Actis Isolation</span>
+        <span class="brand-sub">Espace formation Leadbay</span>
+      </div>
+    </div>
+    <a href="mailto:jean-marie@leadbay.ai" class="header-contact">Contacter le support</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6C2.5 4.07 4.07 2.5 6 2.5C7.93 2.5 9.5 4.07 9.5 6C9.5 7.93 7.93 9.5 6 9.5C4.07 9.5 2.5 7.93 2.5 6Z" stroke="currentColor" stroke-width="1.2"/><path d="M5 4.5L8 6L5 7.5V4.5Z" fill="currentColor"/></svg>
+        Formation Leadbay
+      </div>
+      <h1>Centre de ressources</h1>
+      <p>Tutoriels vidéo pour prendre en main Leadbay et prospecter plus efficacement sur votre territoire.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">11</div><div class="stat-label">vidéos</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">modules</div></div>
+      <div class="stat"><div class="stat-num">~45'</div><div class="stat-label">au total</div></div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- Teaser -->
+  <a href="https://www.loom.com/share/420d9c4e29524e99b1964f31ca8a06a6" target="_blank" rel="noopener" class="teaser-card">
+    <div class="teaser-play">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 3.5L13 8L5 12.5V3.5Z" fill="white"/></svg>
+    </div>
+    <div class="teaser-content">
+      <div class="teaser-eyebrow">Commencez ici</div>
+      <p>Teaser — La promesse Leadbay en 2 minutes</p>
+      <span>Regarder sur Loom · 2'00</span>
+    </div>
+    <div class="teaser-arrow">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9H14M14 9L9.5 4.5M14 9L9.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+
+  <!-- Section I -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">I</span>
+      <span class="section-title">Comprendre Leadbay</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="video-grid">
+
+      <!-- Thumb Interface -->
+      <a href="https://www.loom.com/share/24c1cccf3222432e8fadb5b128173a33" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-interface">
+          <div class="screen-mock">
+            <div class="screen-bar"></div>
+            <div class="screen-row"><div class="screen-cell" style="width:40px"></div><div class="screen-cell" style="width:20px"></div></div>
+            <div style="display:flex;gap:3px;padding:2px 4px"><div class="screen-cell" style="width:55px;height:4px"></div></div>
+            <div style="display:flex;gap:3px;padding:2px 4px"><div class="screen-cell" style="width:30px;height:4px"></div><div class="screen-cell" style="width:20px;height:4px;background:#8B5CF6;opacity:.5"></div></div>
+            <div style="display:flex;gap:3px;padding:2px 4px"><div class="screen-cell" style="width:45px;height:4px"></div></div>
+            <div style="display:flex;gap:3px;padding:2px 4px"><div class="screen-cell" style="width:25px;height:4px"></div><div class="screen-cell" style="width:25px;height:4px;background:#C7C5FB"></div></div>
+          </div>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Interface</span>
+          <span class="video-duration">5'00</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Tour d'horizon — bureau et mobile</p>
+          <span class="video-meta">Prise en main complète<span class="meta-dot"></span>5 vues</span>
+        </div>
+      </a>
+
+      <!-- Thumb Découverte -->
+      <a href="https://www.loom.com/share/7259731a90ff47778217b16ef203d941" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-map">
+          <svg viewBox="0 0 80 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="10" width="64" height="52" rx="6" fill="#C8E6C9" stroke="#81C784" stroke-width="1"/>
+            <path d="M20 35 Q35 20 50 30 Q60 36 65 45" stroke="#4CAF50" stroke-width="1.5" fill="none" stroke-dasharray="3 2"/>
+            <circle cx="28" cy="38" r="4" fill="#625DF5" opacity=".9"/>
+            <circle cx="28" cy="38" r="7" fill="#625DF5" opacity=".15"/>
+            <circle cx="48" cy="28" r="3.5" fill="#8B5CF6" opacity=".9"/>
+            <circle cx="48" cy="28" r="6" fill="#8B5CF6" opacity=".15"/>
+            <circle cx="60" cy="44" r="3" fill="#F564A9" opacity=".9"/>
+            <circle cx="60" cy="44" r="5.5" fill="#F564A9" opacity=".15"/>
+            <rect x="18" y="14" width="22" height="8" rx="3" fill="white" stroke="#E5E7EB" stroke-width=".5"/>
+            <rect x="20" y="16.5" width="6" height="3" rx="1" fill="#625DF5" opacity=".5"/>
+            <rect x="28" y="17" width="10" height="2" rx="1" fill="#9CA3AF" opacity=".6"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Découverte</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Découvrir de nouveaux comptes quotidiennement</p>
+          <span class="video-meta">Flux quotidien</span>
+        </div>
+      </a>
+
+      <!-- Thumb Pipeline -->
+      <a href="https://www.loom.com/share/b675a439a48c45ad9839fdaafa769e24" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-pipeline">
+          <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="42" width="10" height="12" rx="2" fill="#625DF5" opacity=".9"/>
+            <rect x="20" y="32" width="10" height="22" rx="2" fill="#8B5CF6" opacity=".85"/>
+            <rect x="34" y="22" width="10" height="32" rx="2" fill="#A78BFA" opacity=".8"/>
+            <rect x="48" y="14" width="10" height="40" rx="2" fill="#C4B5FD" opacity=".75"/>
+            <rect x="62" y="8" width="10" height="46" rx="2" fill="#DDD6FE" opacity=".7"/>
+            <path d="M6 42 L16 32 L26 22 L40 14 L54 8 L70 4" stroke="#625DF5" stroke-width="1.5" stroke-dasharray="2 2" fill="none" opacity=".4"/>
+            <circle cx="11" cy="42" r="2.5" fill="white" stroke="#625DF5" stroke-width="1.5"/>
+            <circle cx="39" cy="22" r="2.5" fill="white" stroke="#A78BFA" stroke-width="1.5"/>
+            <circle cx="67" cy="8" r="2.5" fill="white" stroke="#C4B5FD" stroke-width="1.5"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Pipeline</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Piloter mon fichier de prospection</p>
+          <span class="video-meta">Suivi &amp; qualification</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Section II -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">II</span>
+      <span class="section-title">Paramétrer mon Leadbay</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="video-grid">
+
+      <!-- Thumb Mobile -->
+      <a href="https://www.loom.com/share/d8fdcebc759b4870ae269f8363fb4e49" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-mobile" style="gap:12px">
+          <div class="phone-mock">
+            <div class="phone-notch"></div>
+            <div class="phone-screen"></div>
+            <div style="width:10px;height:3px;background:#625DF5;border-radius:2px;align-self:center;margin-bottom:3px;flex-shrink:0"></div>
+          </div>
+          <div class="phone-mock" style="height:56px;width:32px;opacity:.6">
+            <div class="phone-notch"></div>
+            <div class="phone-screen"></div>
+          </div>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Mobile</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Installer l'application mobile</p>
+          <span class="video-meta">iOS &amp; Android</span>
+        </div>
+      </a>
+
+      <!-- Thumb Géo région -->
+      <a href="https://www.loom.com/share/c23a8724c8df437e8bd8d4de8a10cd06" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-geo">
+          <svg viewBox="0 0 80 70" fill="none">
+            <ellipse cx="40" cy="38" rx="30" ry="26" fill="#A5D6A7" opacity=".5"/>
+            <path d="M20 45 Q30 25 45 30 Q58 34 60 50 Q50 60 30 58 Z" fill="#66BB6A" opacity=".5"/>
+            <path d="M25 32 Q38 18 55 28 Q65 34 63 46" stroke="#388E3C" stroke-width="1.2" fill="none"/>
+            <path d="M15 50 Q28 58 45 55 Q60 52 65 44" stroke="#388E3C" stroke-width="1" fill="none" opacity=".5"/>
+            <circle cx="40" cy="36" r="10" fill="#625DF5" opacity=".15" stroke="#625DF5" stroke-width="1" stroke-dasharray="2 2"/>
+            <circle cx="40" cy="36" r="4" fill="#625DF5"/>
+            <path d="M40 28 L40 18 M32 32 L24 26 M48 32 L56 26" stroke="#625DF5" stroke-width="1" opacity=".4"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Géo</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Créer une vue sur ma région</p>
+          <span class="video-meta">Filtres géographiques</span>
+        </div>
+      </a>
+
+      <!-- Thumb Ville -->
+      <a href="https://www.loom.com/share/815ddb6f977b465f98b3b9d8260f17ec" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-city">
+          <svg viewBox="0 0 80 70" fill="none">
+            <rect x="10" y="38" width="12" height="22" rx="2" fill="#FFA726" opacity=".7"/>
+            <rect x="14" y="42" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="14" y="50" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="25" y="28" width="14" height="32" rx="2" fill="#FF8F00" opacity=".7"/>
+            <rect x="29" y="32" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="29" y="40" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="29" y="48" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="42" y="34" width="12" height="26" rx="2" fill="#FFB300" opacity=".7"/>
+            <rect x="46" y="38" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="46" y="46" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <rect x="57" y="42" width="10" height="18" rx="2" fill="#FFCA28" opacity=".7"/>
+            <rect x="60" y="46" width="4" height="4" rx=".5" fill="white" opacity=".8"/>
+            <circle cx="32" cy="18" r="7" fill="#625DF5" opacity=".15" stroke="#625DF5" stroke-width="1.2" stroke-dasharray="2 2"/>
+            <circle cx="32" cy="18" r="3" fill="#625DF5"/>
+            <path d="M32 11 L32 5" stroke="#625DF5" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Géo</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Créer une vue sur une ville</p>
+          <span class="video-meta">Périmètre local</span>
+        </div>
+      </a>
+
+      <!-- Thumb Filtres -->
+      <a href="https://www.loom.com/share/7dcbc54e9e174dad8e32ba974f377fa0" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-filters">
+          <div class="filter-lines">
+            <div class="f-row"><div class="f-dot"></div><div class="f-label" style="width:55px"></div></div>
+            <div class="f-row"><div class="f-dot" style="background:#8B5CF6"></div><div class="f-label" style="width:40px;background:#DDD6FE"></div></div>
+            <div class="f-row"><div class="f-dot" style="background:#C4B5FD"></div><div class="f-label" style="width:65px;background:#EDE9FE"></div></div>
+            <div class="f-row"><div class="f-dot" style="background:#E5E7EB"></div><div class="f-label" style="width:30px;background:#E5E7EB"></div></div>
+          </div>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Filtres</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Bien utiliser les filtres de la carte</p>
+          <span class="video-meta">Segmentation avancée</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Section III -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">III</span>
+      <span class="section-title">Faire travailler Leadbay pour vous</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="video-grid">
+
+      <!-- Thumb Qualification -->
+      <a href="https://www.loom.com/share/8370a462b5bf4e169a6efc82640bb9c7" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-qualify">
+          <svg viewBox="0 0 80 66" fill="none">
+            <rect x="12" y="18" width="56" height="38" rx="5" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+            <rect x="18" y="26" width="44" height="6" rx="2" fill="#EEF0FF"/>
+            <rect x="18" y="26" width="32" height="6" rx="2" fill="#625DF5" opacity=".8"/>
+            <rect x="18" y="36" width="44" height="6" rx="2" fill="#EEF0FF"/>
+            <rect x="18" y="36" width="20" height="6" rx="2" fill="#8B5CF6" opacity=".7"/>
+            <rect x="18" y="46" width="44" height="6" rx="2" fill="#EEF0FF"/>
+            <rect x="18" y="46" width="38" height="6" rx="2" fill="#A78BFA" opacity=".6"/>
+            <circle cx="62" cy="16" r="9" fill="#FBBF24"/>
+            <path d="M62 11.5L63.2 14.2L66.2 14.5L64 16.5L64.7 19.4L62 17.9L59.3 19.4L60 16.5L57.8 14.5L60.8 14.2L62 11.5Z" fill="white"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Qualification</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Qualifier des comptes</p>
+          <span class="video-meta">Priorisation IA</span>
+        </div>
+      </a>
+
+      <!-- Thumb Enrichissement -->
+      <a href="https://www.loom.com/share/a7e645e0b5c840c0b17a87852a8a2e94" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-enrich">
+          <svg viewBox="0 0 80 70" fill="none">
+            <circle cx="40" cy="28" r="14" fill="#A7F3D0" stroke="#34D399" stroke-width="1.2"/>
+            <circle cx="40" cy="28" r="8" fill="#6EE7B7"/>
+            <path d="M40 34 C33 34 28 38 28 43 L52 43 C52 38 47 34 40 34Z" fill="#A7F3D0" stroke="#34D399" stroke-width="1.2"/>
+            <rect x="14" y="50" width="52" height="12" rx="4" fill="white" stroke="#E5E7EB" stroke-width=".8"/>
+            <circle cx="20" cy="56" r="3" fill="#625DF5" opacity=".8"/>
+            <rect x="26" y="53.5" width="30" height="2.5" rx="1" fill="#E5E7EB"/>
+            <rect x="26" y="58" width="20" height="2" rx="1" fill="#EEF0FF"/>
+            <path d="M55 53 L60 56 L55 59" stroke="#625DF5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Enrichissement</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Obtenir des coordonnées de contact</p>
+          <span class="video-meta">Email &amp; téléphone</span>
+        </div>
+      </a>
+
+      <!-- Thumb Salesforce -->
+      <a href="https://www.loom.com/share/dca1cd3eb1f2427b965edb4c05014149" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-sf">
+          <svg viewBox="0 0 80 70" fill="none">
+            <rect x="8" y="22" width="26" height="30" rx="4" fill="white" stroke="#BAE6FD" stroke-width="1.2"/>
+            <rect x="12" y="28" width="18" height="3" rx="1" fill="#7DD3FC"/>
+            <rect x="12" y="34" width="12" height="2.5" rx="1" fill="#BAE6FD"/>
+            <rect x="12" y="39" width="16" height="2.5" rx="1" fill="#BAE6FD"/>
+            <rect x="12" y="44" width="10" height="2.5" rx="1" fill="#BAE6FD"/>
+            <rect x="46" y="22" width="26" height="30" rx="4" fill="white" stroke="#C7C5FB" stroke-width="1.2"/>
+            <rect x="50" y="28" width="18" height="3" rx="1" fill="#A5B4FC"/>
+            <rect x="50" y="34" width="12" height="2.5" rx="1" fill="#C7C5FB"/>
+            <rect x="50" y="39" width="16" height="2.5" rx="1" fill="#C7C5FB"/>
+            <rect x="50" y="44" width="10" height="2.5" rx="1" fill="#C7C5FB"/>
+            <path d="M34 37 L46 37" stroke="#625DF5" stroke-width="1.5" stroke-dasharray="2 2" stroke-linecap="round"/>
+            <path d="M40 33 L46 37 L40 41" stroke="#625DF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="34" cy="37" r="3" fill="#625DF5"/>
+            <circle cx="46" cy="37" r="3" fill="#8B5CF6"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Salesforce</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Requalifier des comptes issus de Salesforce</p>
+          <span class="video-meta">Synchronisation CRM</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Section IV -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">IV</span>
+      <span class="section-title">Objectif d'utilisation</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="video-grid">
+
+      <!-- Thumb Territoire -->
+      <a href="https://www.loom.com/share/747cc836d947413c9c7f1012485f0b67" target="_blank" rel="noopener" class="video-card">
+        <div class="video-thumb thumb-territory">
+          <svg viewBox="0 0 80 70" fill="none">
+            <rect x="10" y="14" width="60" height="42" rx="5" fill="white" stroke="#FBCFE8" stroke-width="1"/>
+            <rect x="10" y="14" width="60" height="10" rx="5" fill="#FDF2F8"/>
+            <rect x="10" y="19" width="60" height="5" fill="#FDF2F8"/>
+            <path d="M16 46 L26 38 L36 42 L46 30 L56 34 L64 22" stroke="#F564A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 46 L26 38 L36 42 L46 30 L56 34 L64 22 L64 50 L16 50 Z" fill="#F564A9" opacity=".08"/>
+            <circle cx="26" cy="38" r="3" fill="white" stroke="#F564A9" stroke-width="1.5"/>
+            <circle cx="46" cy="30" r="3" fill="#F564A9"/>
+            <circle cx="64" cy="22" r="3" fill="white" stroke="#F564A9" stroke-width="1.5"/>
+            <rect x="16" y="17" width="20" height="4" rx="1" fill="#FBCFE8" opacity=".8"/>
+          </svg>
+          <div class="play-overlay"><div class="play-btn"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 2L11 6.5L3 11V2Z" fill="white"/></svg></div></div>
+          <span class="video-tag">Territoire</span>
+        </div>
+        <div class="video-body">
+          <p class="video-title">Assurer la couverture de votre territoire</p>
+          <span class="video-meta">Couverture &amp; ciblage</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="background:var(--loom-white);border:1px solid var(--loom-border);border-radius:var(--radius-lg);overflow:hidden;">
+    <div style="padding:1.5rem 1.75rem;border-bottom:1px solid var(--loom-border);display:flex;align-items:center;gap:12px;">
+      <div style="width:36px;height:36px;background:var(--loom-purple-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#625DF5" stroke-width="1.3"/><path d="M7.5 7.5C7.5 6.12 8.62 5 10 5s2.5 1.12 2.5 2.5c0 1.5-2.5 2-2.5 3.5" stroke="#625DF5" stroke-width="1.3" stroke-linecap="round"/><circle cx="10" cy="14.5" r="0.8" fill="#625DF5"/></svg>
+      </div>
+      <span style="font-size:15px;font-weight:600;color:var(--loom-text);">FAQ — Questions fréquentes</span>
+    </div>
+
+    <details style="border-bottom:1px solid var(--loom-border);">
+      <summary style="padding:1.1rem 1.75rem;font-size:14px;font-weight:500;color:var(--loom-text);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none;">
+        Comment sont gérées les entreprises avec des filiales dans Leadbay ?
+        <svg class="faq-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;transition:transform 0.2s;"><path d="M4 6L8 10L12 6" stroke="#625DF5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div style="padding:0 1.75rem 1.5rem;display:flex;flex-direction:column;gap:1.25rem;">
+
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--loom-text);margin-bottom:6px;">C'est quoi la différence entre SIREN et SIRET ?</p>
+          <p style="font-size:13px;color:var(--loom-muted);line-height:1.65;">Le <strong style="color:var(--loom-text);font-weight:500;">SIREN</strong> identifie une entreprise dans son ensemble — c'est le numéro du groupe, de la "maison mère". Le <strong style="color:var(--loom-text);font-weight:500;">SIRET</strong> identifie un établissement précis — c'est le numéro d'une adresse, d'une agence, d'un dépôt. Exemple : une entreprise avec un siège à Paris et une agence à Lyon a 1 SIREN et 2 SIRET.</p>
+        </div>
+
+        <div style="height:1px;background:var(--loom-border);"></div>
+
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--loom-text);margin-bottom:6px;">Pourquoi je ne vois qu'une seule fiche par entreprise dans Leadbay ?</p>
+          <p style="font-size:13px;color:var(--loom-muted);line-height:1.65;">Leadbay regroupe toutes les informations d'un même groupe sous une seule fiche par SIREN. Cela évite les doublons et vous donne une vision complète de l'entreprise — même si elle a plusieurs sites.</p>
+        </div>
+
+        <div style="height:1px;background:var(--loom-border);"></div>
+
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--loom-text);margin-bottom:6px;">Les infos Salesforce que je vois dans Leadbay, à quelle adresse correspondent-elles ?</p>
+          <p style="font-size:13px;color:var(--loom-muted);line-height:1.65;">Quand une entreprise a plusieurs adresses dans Salesforce, Leadbay affiche les informations du SIRET le plus qualifié — c'est-à-dire celui qui a la segmentation la plus élevée (Gold > Silver > Bronze > Prospect qualifié > Prospect). Si deux SIRET ont la même segmentation, c'est celui avec la catégorie la plus élevée (A > B > C) qui est retenu, puis en cas d'égalité, le plus récemment actif. Vous n'avez rien à faire : la règle s'applique automatiquement.</p>
+        </div>
+
+        <div style="height:1px;background:var(--loom-border);"></div>
+
+        <div>
+          <p style="font-size:13px;font-weight:600;color:var(--loom-text);margin-bottom:6px;">Comment trouver les adresses locales (agences, dépôts) d'une même entreprise ?</p>
+          <p style="font-size:13px;color:var(--loom-muted);line-height:1.65;">Sur la carte ou dans les vues, vous avez un filtre pour choisir :</p>
+          <ul style="font-size:13px;color:var(--loom-muted);line-height:1.8;margin:6px 0 10px 1.25rem;">
+            <li><strong style="color:var(--loom-text);font-weight:500;">Siège uniquement</strong> : n'affiche que l'établissement principal de chaque entreprise.</li>
+            <li><strong style="color:var(--loom-text);font-weight:500;">Avec filiales</strong> : affiche aussi les établissements secondaires dont l'activité correspond à vos critères, même si leur siège est en dehors de votre zone.</li>
+          </ul>
+          <p style="font-size:13px;color:var(--loom-muted);line-height:1.65;margin-bottom:12px;">Concrètement : si vous prospectez sur Lorient et qu'une entreprise de Saint-Nazaire a une agence à Lorient, elle apparaîtra dans vos résultats avec cette option activée.</p>
+          <a href="https://www.loom.com/share/8cdc003ab3c54a548e575e55e93d8f09" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--loom-purple);background:var(--loom-purple-light);padding:7px 14px;border-radius:var(--radius);text-decoration:none;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2L11 7L3 12V2Z" fill="#625DF5"/></svg>
+            Afficher les filiales dans Leadbay
+          </a>
+        </div>
+
+      </div>
+    </details>
+  </div>
+
+  <script>
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        const chevron = d.querySelector('.faq-chevron');
+        if (chevron) chevron.style.transform = d.open ? 'rotate(180deg)' : '';
+      });
+    });
+  </script>
+
+</main>
+
+<footer class="site-footer">
+  <p>Actis Isolation · Espace formation Leadbay · Besoin d'aide ? <a href="mailto:jean-marie@leadbay.ai">jean-marie@leadbay.ai</a></p>
+</footer>
+
+</body>
+</html>
